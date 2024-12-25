@@ -1,0 +1,14 @@
+{
+  "development": {
+    "url": "postgresql://postgres:postgres@localhost:5432/scheduling_app?schema=public",
+    "dialect": "postgres"
+  },
+  "test": {
+    "url": "postgresql://postgres:postgres@localhost:5432/scheduling_app?schema=public",
+    "dialect": "postgres"
+  },
+  "production": {
+    "url": "postgresql://postgres:postgres@localhost:5432/scheduling_app?schema=public",
+    "dialect": "postgres"
+  }
+}
