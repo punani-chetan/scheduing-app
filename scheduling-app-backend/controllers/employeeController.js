@@ -1,15 +1,14 @@
-// controllers/employeeController.js
 import Employee from "../models/Employee.js";
 
 export const getAllEmployees = async (req, res) => {
   try {
-    const employees = await Employee.findAll(); // Fetch all employees from the database
+    const employees = await Employee.findAll();
 
     if (employees.length === 0) {
       return res.status(404).json({ message: "No employees found" });
     }
 
-    res.status(200).json(employees); // Return the employees data
+    res.status(200).json(employees);
   } catch (error) {
     console.error("Error fetching employees:", error);
     res

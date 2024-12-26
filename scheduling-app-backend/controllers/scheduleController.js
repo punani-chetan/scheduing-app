@@ -3,13 +3,11 @@ import ScheduleEmployee from "../models/ScheduleEmployee.js";
 import Employee from "../models/Employee.js";
 import moment from "moment";
 
-// Create a new schedule
 export const createSchedule = async (req, res) => {
   const { scheduleDate, scheduleTime, comment, selectedEmployees } = req.body;
   const adminId = req.user.id;
 
   try {
-    // Validate selectedEmployees is an array of numbers
     if (
       !Array.isArray(selectedEmployees) ||
       !selectedEmployees.every(Number.isInteger)
@@ -39,7 +37,7 @@ export const createSchedule = async (req, res) => {
       scheduleDate,
       scheduleTime,
       comment,
-      notificationTimes, // Save notification times
+      notificationTimes,
     });
 
     // Associate employees with the schedule
@@ -51,7 +49,7 @@ export const createSchedule = async (req, res) => {
     // Fetch employee details
     const employees = await Employee.findAll({
       where: { id: selectedEmployees },
-      attributes: ["id", "name", "email"], // Select only necessary fields
+      attributes: ["id", "name", "email"],
     });
 
     if (employees.length === 0) {

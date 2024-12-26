@@ -4,7 +4,6 @@ import Employee from "../models/Employee.js";
 
 const seedData = async () => {
   try {
-    // Check if there are any users in the database
     const userCount = await User.count();
     if (userCount === 0) {
       const hashedPassword = await bcrypt.hash("admin123", 10);

@@ -3,11 +3,11 @@
 import { readdirSync } from "fs";
 import { basename, join } from "path";
 import { Sequelize } from "sequelize";
-import config from "../config/config.js"; // Import config
+import config from "../config/config.js";
 
-const basenameFile = basename(import.meta.url); // Get the current file name
-const env = process.env.NODE_ENV || "development"; // Default to 'development'
-const configData = config[env]; // Get the config for the current environment
+const basenameFile = basename(import.meta.url);
+const env = process.env.NODE_ENV || "development";
+const configData = config[env];
 
 // Create a new Sequelize instance using the config data
 const sequelize = new Sequelize(config.development.url, {

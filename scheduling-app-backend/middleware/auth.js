@@ -11,19 +11,16 @@ const auth = (req, res, next) => {
 
   try {
     const verified = jwt.verify(tokenWithoutBearer, process.env.JWT_SECRET);
-    req.user = verified; // Attach user to the request object
+    req.user = verified;
     next();
   } catch (err) {
     if (err.name === "TokenExpiredError") {
-      // Token expired error
-      return res
-        .status(401)
-        .json({
-          status: "error",
-          message: "Token has expired, please login again.",
-        });
+      return res.status(401).json({
+        status: "error",
+        message: "Token has expired, please login again.",
+      });
     }
-    // General error (invalid token, malformed, etc.)
+
     res.status(400).json({ status: "error", message: "Invalid Token" });
   }
 };

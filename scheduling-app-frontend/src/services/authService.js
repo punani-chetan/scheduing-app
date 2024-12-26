@@ -10,7 +10,7 @@ export const login = async (credentials) => {
 };
 
 export const useAuth = () => {
-  const token = localStorage.getItem("authToken"); // Assuming you store the auth token in localStorage
+  const token = localStorage.getItem("authToken");
   return {
     isAuthenticated: token ? true : false,
   };

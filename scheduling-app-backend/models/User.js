@@ -21,16 +21,16 @@ const User = sequelize.define(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true, // Ensures that email is unique across users
+      unique: true,
       validate: {
-        isEmail: true, // Validates the value is a proper email format
+        isEmail: true,
       },
     },
     role: { type: DataTypes.ENUM("Admin", "User"), defaultValue: "User" },
   },
   {
-    tableName: "users", // Optional: Sequelize will automatically pluralize 'User' to 'users'
-    timestamps: true, // Optional: Enables createdAt and updatedAt fields
+    tableName: "users",
+    timestamps: true,
   }
 );
 

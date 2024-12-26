@@ -17,7 +17,7 @@ functions:
           rate: rate(1 minute) # This will trigger every minute
           enabled: true
     environment:
-      SENDER_EMAIL: "your-email@example.com" # Replace with your verified SES email
+      SENDER_EMAIL: "dummy@example.com" # Replace with your verified SES email
 
 plugins:
   - serverless-offline
